@@ -26,4 +26,3 @@
   shell: ./configure --prefix={{nodejs_path}} && make && make install chdir={{nodejs_tmp_dir}}{{nodejs_file_tag}}
   sudo: true
   when: wanted_version_installed.rc == 1
-
