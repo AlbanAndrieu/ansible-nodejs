@@ -11,3 +11,4 @@
   with_items: nodejs_global_packages
   environment:
     PATH: "{{ nodejs_path }}/bin:{{ nodejs_path_out.stdout }}"
+  changed_when: false

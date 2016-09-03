@@ -6,3 +6,4 @@
     - curl
     - gcc-c++
     - gcc
+  changed_when: false

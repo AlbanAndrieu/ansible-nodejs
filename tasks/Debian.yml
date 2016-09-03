@@ -11,3 +11,4 @@
     - libsasl2-2
     - libsasl2-dev
     - libcurl3
+  changed_when: false
