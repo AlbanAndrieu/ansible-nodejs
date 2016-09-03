@@ -61,13 +61,13 @@ script:
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible --version; git --version'
 
   # Ansible galaxy.
-  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-galaxy install -r /etc/ansible/roles/role_under_test/tests/requirements.yml'
+  #- 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-galaxy install -r /etc/ansible/roles/role_under_test/tests/requirements.yml'
 
   # Ansible syntax check.
   #- 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/${playbook} --syntax-check'
 
   # Test role.
-  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/${playbook} -e "nodejs_version=$NODEJS_VERSION"'
+  - travis_wait 30 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_under_test/tests/${playbook} -e "nodejs_version=$NODEJS_VERSION"'
 
   # Test role idempotence.
   - idempotence=$(mktemp)
