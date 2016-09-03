@@ -11,6 +11,7 @@
     - name: Check node
       command: which node
       register: node_path
+      changed_when: false
 
     - debug:
         msg: "Node was installed in {{node_path.stdout}}"
